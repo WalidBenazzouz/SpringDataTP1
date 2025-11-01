@@ -23,6 +23,27 @@
 
 Ce projet illustre un écosystème **Spring Boot** moderne centré sur la gestion des étudiants, avec une architecture multi-clients permettant de comparer différentes approches de consommation d'API REST.
 
+### 🧭 Nouveau : Guide touristique IA (TP3 LangChain4j)
+
+- ✅ Endpoint REST dédié : `GET /api/guide/lieu/{villeOuPays}` avec un paramètre optionnel `nb` pour préciser le nombre de lieux (par défaut `2`).
+- 🤖 Intégration LangChain4j + Gemini pour générer du contenu JSON structuré :
+
+```json
+{
+  "ville_ou_pays": "Nice",
+  "endroits_a_visiter": ["Promenade des Anglais", "Vieux Nice"],
+  "prix_moyen_repas": "20 EUR"
+}
+```
+
+- 🔐 Configurez la clé API Gemini via `GEMINI_API_KEY` (variable d'environnement) ou `gemini.api-key` (application.properties).
+- 🛟 Aucun secret disponible ? L'application renvoie une réponse de secours expliquant que les données temps réel ne sont pas accessibles.
+- 🌐 Exemple de test :
+
+```bash
+curl "http://localhost:8080/api/guide/lieu/Maroc?nb=2" | jq
+```
+
 ### ✨ Composants principaux
 
 | Composant | Description | Technologie |
